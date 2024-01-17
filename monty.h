@@ -30,6 +30,8 @@ void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 
+FILE *open_file(char *file, char *mode, int argc);
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
