@@ -11,9 +11,15 @@ int main(int argc, char *argv[])
 {
 	FILE *file;
 	char *monty_cmd[2], *token;
-	char *opcodes[5] = { "push", "pop", "pall", "pint", "nop" };
 	char buffer[1024];
 	int i;
+	instruction_t op_fun[] = {
+		{"push", push},
+		{"pop", pop},
+		{"pall", pall},
+		{"pint", pint},
+		{"nop", nop},
+	};
 
 	if (argc != 2)
 	{
@@ -38,12 +44,7 @@ int main(int argc, char *argv[])
 			token = strtok(NULL, " ");
 			i++;
 		}
-		i = 0;
-		while (i < 2) /* For testing purposes */
-		{
-			printf("monty_cmd[%d] = %s\n", i, monty_cmd[i]);
-			i++;
-		}
+		printf("%lu\n", sizeof(op_fun));
 	}
 	fclose(file);
 	return (0);
