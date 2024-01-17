@@ -6,6 +6,8 @@
 #include <stddef.h>
 #include <string.h>
 
+extern int data;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -36,4 +38,6 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-#endif
+void push(stack_t **stack, unsigned int line_number);
+
+#endif /* MONTY_H */
