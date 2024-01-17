@@ -14,7 +14,10 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node, *curr = *stack;
 
 	if (data == 0)
-		fprintf(stderr, "L%u: Invalid data.", line_number);
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
