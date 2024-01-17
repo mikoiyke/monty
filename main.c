@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int data = 0;
+
 /**
  * main - Entry point.
  * @argc: Total number of command line argument.
@@ -11,8 +13,9 @@ int main(int argc, char *argv[])
 {
 	FILE *file;
 	char *monty_cmd[2], *token;
+	stack_t *stack;
 	char buffer[1024];
-	int i;
+	unsigned int i, length, ln = 1;
 	instruction_t op_fun[] = {
 		{"push", push},
 		{"pop", pop},
@@ -21,6 +24,7 @@ int main(int argc, char *argv[])
 		{"nop", nop},
 	};
 
+	stack = NULL;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -34,18 +38,27 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
+	length = sizeof(op_fun) / sizeof(op_fun[0]);
 	while (fgets(buffer, sizeof(buffer), file))
 	{
 		i = 0;
-		token = strtok(buffer, " ");
+		token = strtok(buffer, " \n");
 		while (i < 2)
 		{
 			monty_cmd[i] = token;
-			token = strtok(NULL, " ");
+			token = strtok(NULL, " \n");
 			i++;
 		}
-		printf("%lu\n", sizeof(op_fun));
+
+		if (monty_cmd[1])
+			data = atoi(monty_cmd[1]);
+
+		for (i = 0; i < length; i++)
+			if (strcmp(op_fun[i].opcode, monty_cmd[0]) == 0)
+				op_fun[i].f(&stack, ln);
+		ln++;
 	}
+
 	fclose(file);
 	return (0);
 }
