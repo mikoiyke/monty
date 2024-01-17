@@ -16,10 +16,7 @@ int main(int argc, char *argv[])
 	unsigned int i, length, ln = 1;
 	instruction_t op_fun[] = {
 		{"push", push},
-		{"pop", pop},
 		{"pall", pall},
-		{"pint", pint},
-		{"nop", nop},
 	};
 
 	file = open_file(argv[1], "r", argc);

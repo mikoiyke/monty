@@ -9,5 +9,12 @@
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	printf("This is PINT function\n");
+	stack_t *curr = *stack;
+
+	while (curr)
+	{
+		printf("%d\n", curr->n);
+		curr = curr->next;
+	}
+	printf("This is PINT function on line %u.\n", line_number);
 }

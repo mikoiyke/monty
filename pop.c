@@ -10,5 +10,12 @@
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	printf("This is POP function\n");
+	stack_t *curr = *stack;
+
+	while (curr)
+	{
+		printf("%d\n", curr->n);
+		curr = curr->next;
+	}
+	printf("This is POP function on line %u.\n", line_number);
 }

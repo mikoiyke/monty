@@ -18,7 +18,7 @@ FILE *open_file(char *file, char *mode, int argc)
 		exit(EXIT_FAILURE);
 	}
 
-	fp = fopen(file, "r");
+	fp = fopen(file, mode);
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", file);
