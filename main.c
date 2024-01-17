@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
 		ln++;
 	}
 
+	free_stack(stack);
 	fclose(file);
 	return (0);
 }
