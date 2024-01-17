@@ -12,10 +12,12 @@ void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
 
-	while (curr)
+	if (!curr)
 	{
-		printf("%d\n", curr->n);
-		curr = curr->next;
+		fprintf(stderr, "L%u: can't pop an empty stack", line_number);
+		exit(EXIT_FAILURE);
 	}
-	printf("This is POP function on line %u.\n", line_number);
+
+	*stack = (*stack)->next;
+	free(curr);
 }
