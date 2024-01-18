@@ -32,6 +32,7 @@ void nop(stack_t **stack, unsigned int line_number);
 
 FILE *open_file(char *file, char *mode, int argc);
 void free_stack(stack_t *stack);
+int opcode_value(char *value);
 
 /**
  * struct instruction_s - opcode and its function
