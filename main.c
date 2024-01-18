@@ -30,7 +30,8 @@ int main(int argc, char *argv[])
 
 		if (monty_cmd[0])
 		{
-			data = opcode_value(monty_cmd[0], monty_cmd[1]);
+			/*data = opcode_value(monty_cmd[0], monty_cmd[1]);*/
+			data = monty_cmd[1];
 			exec_opc(&stack, monty_cmd[0], ln);
 		}
 		ln++;

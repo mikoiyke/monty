@@ -6,7 +6,7 @@
 #include <stddef.h>
 #include <string.h>
 
-extern int data;
+extern char * data;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -32,8 +32,9 @@ void nop(stack_t **stack, unsigned int line_number);
 
 FILE *open_file(char *file, char *mode, int argc);
 void free_stack(stack_t *stack);
-int opcode_value(char *opcode, char *value);
+/* int opcode_value(char *opcode, char *value); */
 void exec_opc(stack_t **stack, char *opc, unsigned int l);
+int is_digit(char *c);
 
 /**
  * struct instruction_s - opcode and its function

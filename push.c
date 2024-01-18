@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int data = 0;
+char *data = NULL;
 
 /**
  * push - pushes an element to the stack
@@ -13,7 +13,7 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node, *curr = *stack;
 
-	if (data == -1)
+	if (is_digit(data) == 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 
@@ -34,7 +34,7 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	new_node->n = data;
+	new_node->n = atoi(data);
 
 	new_node->prev = NULL;
 	new_node->next = curr;
