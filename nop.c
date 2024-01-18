@@ -9,12 +9,7 @@
  */
 void nop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *curr = *stack;
-
-	while (curr)
-	{
-		printf("%d\n", curr->n);
-		curr = curr->next;
-	}
-	printf("This is NOP function on line %u.\n", line_number);
+	(void)stack;
+	(void)line_number;
+	return;
 }
