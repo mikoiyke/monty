@@ -13,17 +13,10 @@ int main(int argc, char *argv[])
 	char *monty_cmd[2], *token;
 	stack_t *stack = NULL;
 	char buffer[1024];
-	unsigned int i, length, ln = 1;
-	instruction_t op_fun[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop}
-	};
+	unsigned int i, ln = 1;
 
 	file = open_file(argv[1], "r", argc);
 
-	length = sizeof(op_fun) / sizeof(op_fun[0]);
 	while (fgets(buffer, sizeof(buffer), file))
 	{
 		i = 0;
@@ -38,19 +31,7 @@ int main(int argc, char *argv[])
 		if (monty_cmd[0])
 		{
 			data = opcode_value(monty_cmd[0], monty_cmd[1]);
-			for (i = 0; i < length; i++)
-			{
-				if (strcmp(op_fun[i].opcode, monty_cmd[0]) == 0)
-				{
-					op_fun[i].f(&stack, ln);
-					break;
-				}
-			}
-			if (i == length)
-			{
-				fprintf(stderr, "L%u: unknown instruction %s\n", ln, monty_cmd[0]);
-				exit(EXIT_FAILURE);
-			}
+			exec_opc(&stack, monty_cmd[0], ln);
 		}
 		ln++;
 	}
