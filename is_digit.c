@@ -2,23 +2,26 @@
 
 /**
  * is_digit - check if character is digit (0 -9)
- * @c: The character to check for
+ * @str: The string to check for
  *
  * Return: On success, 1.
  * On error, 0 is returned.
  */
 int is_digit(char *str)
 {
-	if (!str)
-		return 0;
-
 	char *ch = str;
+
+	if (!str)
+		return (0);
+
+	if (ch[0] == '-')
+		ch++;
 
 	while (*ch)
 	{
 		if (!(*ch >= '0' && *ch <= '9'))
 			return (0);
-		*ch++;
+		ch++;
 	}
 	return (1);
 }
