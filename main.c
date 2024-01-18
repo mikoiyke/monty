@@ -39,8 +39,18 @@ int main(int argc, char *argv[])
 		{
 			data = opcode_value(monty_cmd[0], monty_cmd[1]);
 			for (i = 0; i < length; i++)
+			{
 				if (strcmp(op_fun[i].opcode, monty_cmd[0]) == 0)
+				{
 					op_fun[i].f(&stack, ln);
+					break;
+				}
+			}
+			if (i == length)
+			{
+				fprintf(stderr, "L%u: unknown instruction %s\n", ln, monty_cmd[0]);
+				exit(EXIT_FAILURE);
+			}
 		}
 		ln++;
 	}
