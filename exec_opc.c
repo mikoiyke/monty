@@ -16,7 +16,8 @@ void exec_opc(stack_t **stack, char *opc, unsigned int l)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
-		{"pop", pop}
+		{"pop", pop},
+		{"swap", swap}
 	};
 
 	length = sizeof(op_fun) / sizeof(op_fun[0]);
