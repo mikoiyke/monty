@@ -9,17 +9,16 @@
  */
 int is_digit(char *str)
 {
-	char *ch = str;
-	
 	if (!str)
 		return 0;
 
+	char *ch = str;
+
 	while (*ch)
 	{
-		if (*ch >= '0' && *ch <= '9')
-			return (1);
-		ch++;
+		if (!(*ch >= '0' && *ch <= '9'))
+			return (0);
+		*ch++;
 	}
-
-	return (0);
+	return (1);
 }
