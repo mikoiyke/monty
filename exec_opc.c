@@ -17,7 +17,7 @@ void exec_opc(stack_t **stack, char *opc, unsigned int l)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
-		{"swap", swap}
+		{"swap", swap},
 		{"add", add}
 	};
 

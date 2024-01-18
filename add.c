@@ -10,4 +10,18 @@
  */
 void add(stack_t **stack, unsigned int line_number)
 {
+	stack_t *curr = *stack;
+	int sum;
+
+	if (!curr || !(curr->next))
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	sum = curr->n + curr->next->n;
+	curr->next->n = sum;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	free(curr);
 }
