@@ -3,6 +3,7 @@
 /**
  * opcode_value - Updates the global variable 'data' after
  * atoi() conversion
+ * @opcode: Monty's opcode from .m file provided.
  * @value: The current value after the opcode.
  *
  * Return: If value is valid, returns the converted value

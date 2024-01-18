@@ -35,11 +35,9 @@ int main(int argc, char *argv[])
 			i++;
 		}
 
-
 		if (monty_cmd[0])
 		{
 			data = opcode_value(monty_cmd[0], monty_cmd[1]);
-
 			for (i = 0; i < length; i++)
 				if (strcmp(op_fun[i].opcode, monty_cmd[0]) == 0)
 					op_fun[i].f(&stack, ln);
