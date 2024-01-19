@@ -1,8 +1,7 @@
 #include "monty.h"
 
 /**
- * sub - prints all the values on the stack,
- * starting from the top of the stack.
+ * sub - subtracts the top element of the stack from the second top element.
  * @stack: Pointer to the top of stack.
  * @line_number:  Current line number for the monty bytecode.
  *
