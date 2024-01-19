@@ -8,7 +8,7 @@
  *
  * Return: Nothing.
  */
-void add(stack_t **stack, unsigned int line_number)
+void mod(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
 	int res;
