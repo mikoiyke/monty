@@ -20,5 +20,6 @@ void pchar(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 	}
+
 	printf("%c\n", (*stack)->n);
 }
