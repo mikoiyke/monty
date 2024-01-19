@@ -13,16 +13,10 @@ void exec_opc(stack_t **stack, char *opc, unsigned int l)
 	unsigned int i, length = 0;
 
 	instruction_t op_fun[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{"sub", sub},
-		{"div", _div},
-		{"mul", mul}
+		{"push", push}, {"pall", pall}, {"pint", pint},
+		{"pop", pop}, {"swap", swap}, {"add", add},
+		{"nop", nop}, {"sub", sub}, {"div", _div},
+		{"mul", mul}, {"mod", mod}
 	};
 
 	length = sizeof(op_fun) / sizeof(op_fun[0]);
