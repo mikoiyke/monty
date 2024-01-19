@@ -19,13 +19,13 @@ void mod(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if (curr->next->n == 0)
+	if (curr->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	res = curr->n % curr->next->n;
+	res = curr->next->n % curr->n;
 	curr->next->n = res;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
