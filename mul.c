@@ -10,7 +10,7 @@
 void mul(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr = *stack;
-	int sum;
+	int res;
 
 	if (!curr || !(curr->next))
 	{
@@ -18,8 +18,8 @@ void mul(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	sum = curr->n * curr->next->n;
-	curr->next->n = sum;
+	res = curr->n * curr->next->n;
+	curr->next->n = res;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	free(curr);
