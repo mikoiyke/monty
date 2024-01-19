@@ -22,6 +22,7 @@ void exec_opc(stack_t **stack, char *opc, unsigned int l)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", _div},
+		{"mul", mul}
 	};
 
 	length = sizeof(op_fun) / sizeof(op_fun[0]);
